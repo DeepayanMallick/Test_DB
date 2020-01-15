@@ -20,21 +20,4 @@ Route::get('/', function () {
     return view('welcome', $data);
 });
 
-Route::get('/put-db', function () {
-
-    config()->set("dblist.12700180010", [
-        "database" => "test10",
-        "username" => "debian-sys-maint",
-        "password" => "G0H7Xru852X3zl3a",
-    ]);
-
-    $dblist = config('dblist');
-
-    // $object = json_decode(json_encode($dblist), true);
-
-    $dblist = (object) $dblist;
-
-    $text = '<?php return ' .  var_export($dblist, true) . ';';
-
-    file_put_contents(config_path('dblist.php'), $text);
-});
+// Route::get('/set-new-db', 'SetDatabaseController@index')->name('set-new-db');

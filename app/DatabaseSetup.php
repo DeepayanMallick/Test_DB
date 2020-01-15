@@ -22,7 +22,6 @@ class DatabaseSetup
     {
         $db_host_name = Str::slug($this->host_name);
 
-
         $db_list = config('dblist');
 
         if (!isset($db_list[$db_host_name])) {
